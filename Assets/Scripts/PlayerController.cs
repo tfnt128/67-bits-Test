@@ -4,13 +4,18 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed = 8f;
     [SerializeField] private float _rotationSpeed = 5f;
-
+    
     private Transform _cameraTransform;
     private Rigidbody _rigidbody;
     private InputControllerBase _inputController = null;
+    private PlayerAnimations _playerAnimations;
+    
+    public PlayerAnimations PlayerAnimations => _playerAnimations;
+    public bool IsMoving { get; private set; } = false;
 
     private void Awake()
     {
+        _playerAnimations = GetComponentInChildren<PlayerAnimations>();
         _cameraTransform = Camera.main.transform;
         _rigidbody = GetComponent<Rigidbody>();
     }
@@ -46,6 +51,9 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 velocity = Vector3.zero;
         velocity = CalculateMovementVelocity();
+        
+        IsMoving = velocity != Vector3.zero;
+        
         SetVelocityAndRotation(velocity);
     }
     
