@@ -41,12 +41,18 @@ public class RagdollCharacter : MonoBehaviour, IPunchable
         SetMainColliderEnabled(false);
     }
 
-    private void RagdollOff()
+    public void RagdollOff()
     {
         SetRagdollEnabled(false);
         SetKinematic(true);
         SetAnimatorEnabled(true);
         SetMainColliderEnabled(true);
+    }
+    
+    public void OnlyRagdollOff()
+    {
+        SetRagdollEnabled(false);
+        SetKinematic(true);
     }
 
     private void SetRagdollEnabled(bool enabled)
@@ -59,8 +65,6 @@ public class RagdollCharacter : MonoBehaviour, IPunchable
     {
         foreach (var rb in _limbRigidbodyBodies)
             rb.isKinematic = kinematic;
-
-        _rigidbody.isKinematic = !kinematic;
     }
 
     private void SetAnimatorEnabled(bool enabled)

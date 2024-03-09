@@ -1493,10 +1493,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6724743378157917625}
-  - component: {fileID: 3249570861451669597}
   - component: {fileID: 66505417852499306}
   - component: {fileID: 6130774400901950386}
   - component: {fileID: 4138157444677326311}
+  - component: {fileID: 7628456869723459320}
   m_Layer: 0
   m_Name: mixamorig:Hips
   m_TagString: Untagged
@@ -1522,19 +1522,6 @@ Transform:
   - {fileID: 3077675978189805864}
   m_Father: {fileID: 5392444499355128312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3249570861451669597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2239089538263783170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb751a5d1d2a2804eb7bc95b79c0e17e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _firstParent: {fileID: 6483302928466648448}
 --- !u!65 &66505417852499306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1579,7 +1566,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1606,6 +1593,19 @@ CapsuleCollider:
   m_Height: 3.2669313
   m_Direction: 1
   m_Center: {x: 0.030665994, y: 0.23985541, z: 0}
+--- !u!114 &7628456869723459320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239089538263783170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2036efd7c8039b40bde9ec5ee097e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followSpeed: 10
 --- !u!1 &2404181561185922661
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,22 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
 public class StackableObject : MonoBehaviour, IStackable
 {
-    [SerializeField] private GameObject _firstParent;
-
+    [SerializeField] private float followSpeed;
+    
     private bool _canStack = false;
     
     public bool CanStack { get => _canStack; set => _canStack = value; }
 
-    public void OnStacked(Transform parent, float stackOffset, GameObject prefab)
+    public void UpdateObjectPosition(Transform followedCube, bool isFollowStart)
     {
-        if(!_canStack)
-            return;
-        
-        GameObject prefabReference = Instantiate(prefab);
-        Vector3 newPos = parent.position + Vector3.up * stackOffset * parent.childCount;
-        prefabReference.transform.SetParent(parent);
-        prefabReference.transform.position = newPos;
-        Destroy(_firstParent);
+        if (_canStack)
+            StartCoroutine( StartFollowingToLastObjectPosition(followedCube, isFollowStart));
+    }
+
+    IEnumerator StartFollowingToLastObjectPosition(Transform followedObject, bool isFollowStart)
+    {
+        while (isFollowStart)
+        {
+            yield return new WaitForEndOfFrame();
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, followedObject.position.x, followSpeed * Time.deltaTime),
+                transform.position.y,
+                Mathf.Lerp(transform.position.z, followedObject.position.z, followSpeed * Time.deltaTime));
+        }
     }
 }

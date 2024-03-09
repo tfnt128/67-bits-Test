@@ -9,9 +9,10 @@ public class PlayerStackable : MonoBehaviour
     [SerializeField] private int _maxStackHeight = 3;
     [SerializeField] private float _stackOffset = 0.5f;
     [SerializeField] private float _timerBetweenPunchAndStack = 2f;
-    [SerializeField] private GameObject _stackableCharacterPrefab;
-    
+
     private List<GameObject> _stackedObjects = new List<GameObject>();
+    
+    private Vector3 _currentObjectPos;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,16 +23,24 @@ public class PlayerStackable : MonoBehaviour
             StartCoroutine(DelayCanStack(stackable));
             return;
         }
+
+        if (_stackedObjects.Count >= _maxStackHeight)
+            return;
         
-        if (_stackedObjects.Count < _maxStackHeight)
+        _playerController.PlayerAnimations.SetStacking(true);
+        
+        RagdollCharacter ragdollCharacter = other.gameObject.GetComponentInParent<RagdollCharacter>();
+        if (ragdollCharacter != null)
         {
-            stackable.OnStacked(_startTransform, _stackOffset, _stackableCharacterPrefab);
+            ragdollCharacter.OnlyRagdollOff();
             _stackedObjects.Add(other.gameObject);
+
+            Vector3 newPos = _startTransform.position + Vector3.up * _stackOffset * _stackedObjects.Count;
+            other.gameObject.transform.position = newPos;
+            other.gameObject.GetComponent<IStackable>().UpdateObjectPosition(_stackedObjects.Count == 1 ? transform : _stackedObjects[_stackedObjects.Count - 2].transform, true);
         }
-        
-        if (_stackedObjects.Count > 0)
-            _playerController.PlayerAnimations.SetStacking(true);
     }
+    
 
     private IEnumerator DelayCanStack(IStackable stackable)
     {
