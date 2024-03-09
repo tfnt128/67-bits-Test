@@ -18,6 +18,8 @@ public class RagdollCharacter : MonoBehaviour, IPunchable
         RagdollOff();
     }
 
+    public bool CanStack { get; set; }
+
     public void OnPunched(Vector3 punchForce, PlayerPunch player)
     {
         RagdollOn();

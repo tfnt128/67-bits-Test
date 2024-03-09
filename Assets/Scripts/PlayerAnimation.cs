@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
@@ -20,6 +19,11 @@ public class PlayerAnimations : MonoBehaviour
     public void Punch()
     {
         _animator.SetTrigger("Punch");
+    }
+
+    public void SetStacking(bool value)
+    {
+        _animator.SetBool("IsStacking", value);
     }
 
 }

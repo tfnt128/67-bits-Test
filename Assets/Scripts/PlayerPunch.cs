@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerPunch : MonoBehaviour
 {
-    [SerializeField] private float _punchForceForward = 35f;
-    [SerializeField] private float _punchForceUp = 25;
+    [SerializeField] private float _punchForceForward = 30f;
+    [SerializeField] private float _punchForceUp = 20;
     [SerializeField] private PlayerController _playerController;
     
     private void OnCollisionEnter(Collision other)
