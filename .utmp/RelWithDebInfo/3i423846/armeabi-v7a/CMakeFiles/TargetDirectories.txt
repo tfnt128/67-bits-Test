@@ -1,0 +1,5 @@
+C:/Users/thiag/OneDrive/Documentos/GitHub/67-bits-Test/.utmp/RelWithDebInfo/3i423846/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/thiag/OneDrive/Documentos/GitHub/67-bits-Test/.utmp/RelWithDebInfo/3i423846/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+C:/Users/thiag/OneDrive/Documentos/GitHub/67-bits-Test/.utmp/RelWithDebInfo/3i423846/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/thiag/OneDrive/Documentos/GitHub/67-bits-Test/.utmp/RelWithDebInfo/3i423846/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/thiag/OneDrive/Documentos/GitHub/67-bits-Test/.utmp/RelWithDebInfo/3i423846/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir
